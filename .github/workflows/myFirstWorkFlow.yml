@@ -15,3 +15,15 @@ jobs:
 
       - name: checking whoami command
         run: whoami
+      - name: calling sleep
+        run: sleep 10
+  job2:
+    name: JOB2
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking the hostname for unner
+        run: hostname
+      - name: running multiple commands
+        run: |
+          echo "hi form yousuf"
+          echo "current time is 'date'"
