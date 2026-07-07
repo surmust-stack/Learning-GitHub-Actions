@@ -1,6 +1,10 @@
 name: my_first_workflow
-# to get a trigger on every push in the rep in any branch
-on: push
+# to get a trigger push every minute
+on: 
+  push:
+  schedule:
+    - cron: "*/1 * * * *"
+    
 # define jobs in workflow
 jobs:
   job1:
