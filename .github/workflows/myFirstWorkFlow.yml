@@ -8,7 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Running single command in job1
-        run: echo "hi this is my first Github workflow"
+        run: echo "Hi this is my first Github workflow using YAML"
 
       - name: checking os release for github hosted runner
         run: cat /etc/os-release
+
+      - name: checking whoami command
+        run: whoami
