@@ -3,13 +3,14 @@ name: my_first_workflow
 on : push
 # define jobs in workflow
 jobs:
-  job1: JOB1
-  runs_on: ubuntu-latest
-  steps:
-    - name: Running single command in job1
-      run: echo " hi this is my first Github workflow"
-    - name: checking os release for ghithub hosted runner
-      run: cat /etc/os-release
+  job1:
+    name: JOB1
+    runs_on: ubuntu-latest
+    steps:
+      - name: Running single command in job1
+        run: echo " hi this is my first Github workflow"
+      - name: checking os release for ghithub hosted runner
+        run: cat /etc/os-release
       
   
     
