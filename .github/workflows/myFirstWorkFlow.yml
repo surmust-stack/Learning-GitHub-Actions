@@ -1,56 +1,27 @@
-name: my_first_workflow
+name: my_first_workflow_actions
 # to get a trigger push every minute
 on: 
   push:
-  #schedule:
-  #  - cron: "5 * * * *"
-  #workflow_dispatch:
-    
-# define jobs in workflow
+
 jobs:
   job1:
     name: JOB1
     runs-on: ubuntu-latest
     steps:
-      - name: Running single command in job1
-        run: echo "Hi this is my first Github workflow using YAML"
-
-      - name: checking os release for github hosted runner
-        run: cat /etc/os-release
-
-      - name: checking whoami command
-        run: whoami
-      - name: calling sleep
-        run: sleep 10
-  job2:
-    name: JOB2
-    runs-on: ubuntu-latest
-    steps:
-      - name: checking the hostname for unner
-        run: hostname
-      - name: running multiple commands
+      - name: step 1
         run: |
-          echo "hi form yousuf"
-          echo "current time is 'date'"
-          sleep 10
-  job3:
-    name: JOBS3
-    needs: job1
-    runs-on: windows-latest
-    steps:
-      - name: job with single dependency
-        run: sleep 10
-      - name: checking runner info
-        shell: pwsh
-        run: get-computerinfo
+          pwd
+          ls -ltr
+          hostname
+      - name:  step 2
+        uses: actions/checkcout@v7.0.0
+      - name: step 3
+        run: |
+          pwd
+          ls -tlr
+          hostname
+          
+        
+      
 
-  job4:
-    name: JOBS4
-    needs: [job1, job2, job3]
-    runs-on: macos-latest
-    steps:
-      - name: job of multiple dependencies
-        run: sleep 15
-      - name: checking runner info
-        run: sw_vers
     
