@@ -17,14 +17,28 @@ jobs:
         uses: actions/checkout@v7.0.0
       - name: step 3
         run: |
-          echo 'pwd' >> myartifact.txt
-          ls -tlr
-          hostname
+          echo 'pwd' >> myartifact.txt  # file created and pwd written in there
+          mkdir artifacts
+          echo 'ls -tlr' >> artifacts/list.txt
+          echo 'hostname' >> artifacts/hostname.txt
       - name: upload single file
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v7  # actions got from github marketplace
         with:
           name: single_file
           path: ./myartifact.txt
+      - name: upload form directory
+        uses: actions/upload-artifact@v7
+        with:
+          name: directory_artifacts
+          path: artifacts/
+      - name: upload from multiple paths with exclusion
+        uses: actions/upload-artifact@v7
+        with:
+          name: multiple_path_with_exclusion
+          path: |
+            ./myartifact.txt
+            artifacts/
+            !**/hostname.txt  # this file i dont want to upload
           
         
       
