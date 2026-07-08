@@ -39,6 +39,15 @@ jobs:
             ./myartifact.txt
             artifacts/
             !**/hostname.txt  # this file i dont want to upload
+      - name: upload from multiple paths
+        uses: actions/upload-artifact@v7
+        with:
+          name: multiple_path
+          path: |
+            ./myartifact.txt
+            artifacts/
+            
+      
           
         
       
