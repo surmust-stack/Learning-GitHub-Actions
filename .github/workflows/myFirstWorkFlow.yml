@@ -2,9 +2,9 @@ name: my_first_workflow
 # to get a trigger push every minute
 on: 
   push:
-  schedule:
-    - cron: "5 * * * *"
-  workflow_dispatch:
+  #schedule:
+  #  - cron: "5 * * * *"
+  #workflow_dispatch:
     
 # define jobs in workflow
 jobs:
