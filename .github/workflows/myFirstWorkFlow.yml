@@ -46,7 +46,43 @@ jobs:
           path: |
             ./myartifact.txt
             artifacts/
-            
+  jobs2:
+    name: JOB2
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking current directory
+        run: |
+          pwd
+          ls -ltr
+      - name: downlaod single file artifact
+        uses: actions/downlaod-aritfacts@v8.0.1
+        with:
+          name: single_file
+      - name: checking current directory post download
+        run: |
+          pwd
+          ls -ltr
+  jobs3:
+    name: JOB3
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking current directory
+        run: |
+          pwd
+          ls -ltr
+      - name: downlaod a directory
+        uses: actions/downlaod-aritfacts@v8.0.1
+        with:
+          name: directory_artifacts
+      - name: checking current directory post download
+        run: |
+          pwd
+          ls -ltr
+    
+      
+    
       
           
         
