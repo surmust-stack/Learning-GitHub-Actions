@@ -3,9 +3,7 @@ name: my_first_workflow_actions
 on: 
   push: # these push only work following brachnes
     branches: 
-      - dev
-      - 'feature-*'
-      - main
+       - main
   pull_request:   # so only trigger when request from main bracher
     branches:   
       - main
