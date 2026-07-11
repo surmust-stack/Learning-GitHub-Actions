@@ -1,7 +1,11 @@
 name: my_first_workflow_actions
 # to get a trigger push every minute
 on: 
-  push:
+  push: # these push only work following brachnes
+    branches: 
+      - dev
+      - 'feature-*'
+      - main
 
 jobs:
   job1:
@@ -26,26 +30,7 @@ jobs:
         with:
           name: single_file
           path: ./myartifact.txt
-      - name: upload form directory
-        uses: actions/upload-artifact@v7
-        with:
-          name: directory_artifacts
-          path: artifacts/
-      - name: upload from multiple paths with exclusion
-        uses: actions/upload-artifact@v7
-        with:
-          name: multiple_path_with_exclusion
-          path: |
-            ./myartifact.txt
-            artifacts/
-            !**/hostname.txt  # this file i dont want to upload
-      - name: upload from multiple paths
-        uses: actions/upload-artifact@v7
-        with:
-          name: multiple_path
-          path: |
-            ./myartifact.txt
-            artifacts/
+      
   jobs2:
     name: JOB2
     needs: job1
@@ -63,53 +48,7 @@ jobs:
         run: |
           pwd
           ls -ltr
-  jobs3:
-    name: JOB3
-    needs: job1
-    runs-on: ubuntu-latest
-    steps:
-      - name: checking current directory
-        run: |
-          pwd
-          ls -ltr
-      - name: downlaod a directory
-        uses: actions/download-artifact@v8.0.1
-        with:
-          name: directory_artifacts
-      - name: checking current directory post download
-        run: |
-          pwd
-          ls -ltr
-  jobs4:
-    name: JOB4
-    needs: job1
-    runs-on: ubuntu-latest
-    steps:
-      - name: creating custom folder for download
-        run: |
-          mkdir -p single_file
-          mkdir -p download_directory
-      - name: checking current directory
-        run: |
-          pwd
-          ls -ltr
-      - name: download a single file artifact
-        uses: actions/download-artifact@v8.0.1  # actions got from github marketplace
-        with:
-          name: single_file
-          path: single_file
-      - name: downlaod a directory
-        uses: actions/download-artifact@v8.0.1
-        with:
-          name: directory_artifacts
-          path: download_directory
-      - name: checking current directory post download
-        run: |
-          pwd
-          echo "checking single file directory"
-          ls -ltr single_file
-          echo "checking download directory"
-          ls -ltr download_directory
+
     
       
     
