@@ -6,6 +6,10 @@ on:
       - dev
       - 'feature-*'
       - main
+  pull_request:   # so only trigger when request from main bracher
+    branches:   
+      - main
+        
 
 jobs:
   job1:
