@@ -71,28 +71,7 @@ jobs:
           echo "[INFO] current stpe in runing on ${{runner.os}}"
           echo "[INFO] current job id is ${{job.check_run_id}}"
   
-  staging:
-    name: STAGE DEPLOYMEMT
-    runs-on: ubuntu-latest
-    steps:
-      - name: refeering envior variable
-        run: echo "[INFO] running deploymjent on ${{ vars.HOST}} using ${{ vars.USER}}."
-      - name: Refferring env secrets
-        run: echo "[INFO] password for ${{ vars.USER}} is ${{ secrets.PASSWORD}}"
-    environment: 
-     name: Configure STAGING
-  
-  production:
-    name: PRODUCTION DEPLOYMENT
-    runs-on: ubuntu-latest
-    steps:
-      - name: refeering envior variable
-        run: echo "[INFO] running deploymjent on ${{ vars.HOST}} using ${{ vars.USER}}"
-      - name: Refferring env secrets
-        run: echo "[INFO] password for $${{ vars.USER}} is ${{ secrets.PASSWORD}}"
-    environment:
-      name: PRODUCTION
-      
+ 
      
       
       
