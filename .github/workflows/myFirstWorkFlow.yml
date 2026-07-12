@@ -79,7 +79,7 @@ jobs:
       - name: Refferring env secrets
         run: echo "[INFO] password for $${{vars.USER}} is ${{secrets.PASSWORD}}"
     environment: 
-     name: Config STAGING
+     name: Configure STAGING
   production:
     name: production deployment
     runs-on: ubuntu-latest
@@ -89,7 +89,7 @@ jobs:
       - name: Refferring env secrets
         run: echo "[INFO] password for $${{vars.USER}} is ${{secrets.PASSWORD}}"
     environment:
-      name: PRODCUTION
+      name: PRODUCTION
       
      
       
