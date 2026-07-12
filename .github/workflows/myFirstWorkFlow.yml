@@ -60,7 +60,16 @@ jobs:
         run: |
           pwd
           ls -ltr
-
+  job3: 
+    name: JOB3
+    runs-on: ubuntu-latest
+    steps:
+      - name: REffering context on in built context
+        run: |
+          echo "[INFO] triggered by ${{github.event_name}}"
+          echo "[INFO] new changes ared addd by ${{github.actor}} in ${{github.ref_name}} branch"
+          echo "[INFO] current stpe in runing on ${{runner.os}}"
+          echo "[INFO] current job id is ${{job.check_run_id}}"
     
       
     
