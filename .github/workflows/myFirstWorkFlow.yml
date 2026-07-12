@@ -10,7 +10,7 @@ on:
 
 jobs:
   unit-tests:
-    name: Runningunit tests
+    name: Running unit tests
     runs-on: ubuntu-latest
     steps:
       - name:  check out code
@@ -18,7 +18,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v6.3.0
         with:
-          python=version: '3.14'
+          python-version: '3.14'
       - name: install dependencies
         run: |
           python -m pip install --upgrade pip
