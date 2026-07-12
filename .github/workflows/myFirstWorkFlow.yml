@@ -75,9 +75,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: refeering envior variable
-        run: echo "[INFO] running deploymjent on ${{vars.HOST}} using ${{vars.USER}}"
+        run: echo "[INFO] running deploymjent on ${{ vars.HOST}} using ${{ vars.USER}}"
       - name: Refferring env secrets
-        run: echo "[INFO] password for $${{vars.USER}} is ${{secrets.PASSWORD}}"
+        run: echo "[INFO] password for ${{ vars.USER}} is ${{ secrets.PASSWORD}}"
     environment: 
      name: Configure STAGING
   production:
@@ -85,9 +85,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: refeering envior variable
-        run: echo "[INFO] running deploymjent on ${{vars.HOST}} using ${{vars.USER}}"
+        run: echo "[INFO] running deploymjent on ${{ vars.HOST}} using ${{ vars.USER}}"
       - name: Refferring env secrets
-        run: echo "[INFO] password for $${{vars.USER}} is ${{secrets.PASSWORD}}"
+        run: echo "[INFO] password for $${{ vars.USER}} is ${{ secrets.PASSWORD}}"
     environment:
       name: PRODUCTION
       
