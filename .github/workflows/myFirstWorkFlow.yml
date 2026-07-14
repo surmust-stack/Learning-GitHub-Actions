@@ -70,7 +70,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - name: sonarQube quality gate check
-        uses: SonarSource/sonarqube-quality-gate-action@v2
+        uses: SonarSource/sonarqube-quality-gate-action@v1.1.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
