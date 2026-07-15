@@ -84,7 +84,7 @@ jobs:
     name: Build and push Docker image
     runs-on: ubuntu-latest
     needs: [sonarqube, codeql]
-    if: succss()
+    if: success()
     outputs:
       image-tags: ${{ steps.vars.outputs.IMAGE_TAGS }}
     steps:
