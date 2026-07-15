@@ -96,7 +96,8 @@ jobs:
       - name: Generate Image Tag
         id: vars
         run:
-          IMAGE_TAGS="${{ github.run_id }}-$(echo $GITHUB_SHA | cut -c1-7)"
+          SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
+          IMAGE_TAGS="${{ github.run_id }}-$SHORT_SHA"
           echo "IMAGE_TAGS=$IMAGE_TAGS" >> $GITHUB_OUTPUT
 
       - name: Build image ( no push)
