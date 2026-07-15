@@ -96,8 +96,7 @@ jobs:
       - name: Generate Image Tag
         id: vars
         run:
-         # generate image tag using github id and sha
-          IMAGE_TAGS=${{ github.run_id }}-${{ github.sha::7 }} 
+          IMAGE_TAGS="${{ github.run_id }}-${{ GITHUB.SHA::7 }}"
           echo "IMAGE_TAGS=$IMAGE_TAGS" >> $GITHUB_OUTPUT
       - name: Build image ( no push)
         uses: docker/build-push-action@v7
