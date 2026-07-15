@@ -105,7 +105,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: false
-          tags: thinkynx_app:${{ steps.vars.outputs.IMAGE_TAGS }}
+          tags: thinknyxapp:${{ steps.vars.outputs.IMAGE_TAGS }}
       - name: Save Docker image as artifact
         run: docker save thinknyx_app:${{ steps.vars.outputs.IMAGE_TAGS }} -o thinknyx_app.tar
       - name: Upload docker image file
