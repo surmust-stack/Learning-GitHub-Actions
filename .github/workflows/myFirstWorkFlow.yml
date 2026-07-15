@@ -96,36 +96,20 @@ jobs:
       - name: Generate Image Tag
         id: vars
         run:
-          IMAGE_TAGS="${{ github.run_id }}-${{ GITHUB.SHA::7 }}"
+          IMAGE_TAGS="${{ github.run_id }}-$(echo $GITHUB_SHA | cut -c1-7)"
           echo "IMAGE_TAGS=$IMAGE_TAGS" >> $GITHUB_OUTPUT
+
       - name: Build image ( no push)
         uses: docker/build-push-action@v7
         with:
-          context:
+          context: .
           file: ./Dockerfile
           push: false
           tags: thinkynx_app:${{ steps.vars.outputs.IMAGE_TAGS }}
       - name: Save Docker image as artifact
         run: docker save thinkynx_app:${{ steps.vars.outputs.IMAGE_TAGS }} -o thinknyx_app.tar
-      - name: action/upload-aritifact@v7
+      - name: actions/upload-artifact@v7
         with:
           name: thinknyx_app_image
-
-
-        
-
-      # - name: Log in to Docker Hub
-      #   uses: docker/login-action@v2
-      #   with:
-      #     username: ${{ secrets.DOCKER_USERNAME }}
-      #     password: ${{ secrets.DOCKER_PASSWORD }}
-      # - name: Build and push Docker image
-      #   uses: docker/build-push-action@v5
-      #   with:
-      #     context: .
-      #     push: true
-      #     tags: ${{ secrets.DOCKER_USERNAME }}/myapp:${{ github.sha }}
-
-      
-
+          path: thinknyx_app.tar
     
