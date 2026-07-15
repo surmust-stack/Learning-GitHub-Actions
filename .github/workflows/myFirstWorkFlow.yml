@@ -107,7 +107,7 @@ jobs:
           push: false
           tags: thinkynx_app:${{ steps.vars.outputs.IMAGE_TAGS }}
       - name: Save Docker image as artifact
-        run: docker save thinkynx_app:${{ steps.vars.outputs.IMAGE_TAGS }} -o thinknyx_app.tar
+        run: docker save thinknyx_app:${{ steps.vars.outputs.IMAGE_TAGS }} -o thinknyx_app.tar
       - name: Upload docker image file
         uses: actions/upload-artifact@v7
         with:
