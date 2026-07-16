@@ -1,0 +1,32 @@
+name: self-hosted-runner-demo
+# to get a trigger push every minute
+on: 
+  push: # these push only work following brachnes
+    branches: 
+       - dev
+
+
+jobs:
+  #adding unit test to the workflow
+  demo-1:
+    name: Demo job 1
+    runs-on:  unbuntu-latest
+    steps:
+      - name: Display system information
+        run: |
+          echo "Hostname: $(hostname)"
+          echo "OS Version:"
+          lsb_release -a || cat /etc/os-release
+          echo "Runner Name: ${{ runner.name }}"
+          echo "Runner OS: ${{ runner.os }}"
+  demo-2:
+    name: Demo job 2
+    runs-on: self-hosted-runner
+    steps:
+    - name: Display system information
+      run: |
+        echo "Hostname: $(hostname)"
+        echo "OS Version:"
+        lsb_release -a || cat /etc/os-release
+        echo "Runner Name: ${{ runner.name }}"
+        echo "Runner OS: ${{ runner.os }}"
