@@ -19,7 +19,7 @@ jobs:
           lsb_release -a || cat /etc/os-release
           echo "Runner Name: ${{ runner.name }}"
           echo "Runner OS: ${{ runner.os }}"
-          sleep 30
+          sleep 15
   demo-2:
     name: Demo job 2
     runs-on: arc-demo
@@ -31,4 +31,4 @@ jobs:
           lsb_release -a || cat /etc/os-release
           echo "Runner Name: ${{ runner.name }}"
           echo "Runner OS: ${{ runner.os }}"
-          sleep 30
+          sleep 15
