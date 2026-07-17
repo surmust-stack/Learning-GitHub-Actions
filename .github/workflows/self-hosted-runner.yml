@@ -10,7 +10,7 @@ jobs:
   #adding unit test to the workflow
   demo-1:
     name: Demo job 1
-    runs-on:  unbuntu-latest
+    runs-on:  arc-demo
     steps:
       - name: Display system information
         run: |
@@ -19,9 +19,10 @@ jobs:
           lsb_release -a || cat /etc/os-release
           echo "Runner Name: ${{ runner.name }}"
           echo "Runner OS: ${{ runner.os }}"
+          sleep 30
   demo-2:
     name: Demo job 2
-    runs-on: self-hosted-runner
+    runs-on: arc-demo
     steps:
     - name: Display system information
       run: |
