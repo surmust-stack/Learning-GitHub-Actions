@@ -24,10 +24,11 @@ jobs:
     name: Demo job 2
     runs-on: arc-demo
     steps:
-    - name: Display system information
-      run: |
-        echo "Hostname: $(hostname)"
-        echo "OS Version:"
-        lsb_release -a || cat /etc/os-release
-        echo "Runner Name: ${{ runner.name }}"
-        echo "Runner OS: ${{ runner.os }}"
+      - name: Display system information
+        run: |
+          echo "Hostname: $(hostname)"
+          echo "OS Version:"
+          lsb_release -a || cat /etc/os-release
+          echo "Runner Name: ${{ runner.name }}"
+          echo "Runner OS: ${{ runner.os }}"
+          sleep 30
